@@ -1,0 +1,4 @@
+screens/
+screens_hd/
+*.py
+__pycache__/
