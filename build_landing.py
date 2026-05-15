@@ -292,7 +292,7 @@ nav{{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop
 .dash-thumb-label{{background:var(--white);padding:7px 11px;font-size:.73rem;font-weight:600;color:var(--muted);border-top:1px solid var(--border);display:flex;align-items:center;gap:5px;}}
 /* ── COMUNICAZIONI ── */
 #comunicazioni{{background:var(--white)}}
-.comms-top{{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center;margin-bottom:40px;}}
+.comms-top{{margin-bottom:40px;}}
 .comms-copy-left{{}}
 .comms-copy-left h2{{font-size:clamp(1.9rem,3vw,2.6rem);margin-bottom:16px;}}
 .comms-copy-left > p{{color:var(--muted);font-size:1.02rem;line-height:1.75;margin-bottom:28px;}}
@@ -756,10 +756,6 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
             </div>
           </li>
         </ul>
-      </div>
-      <div class="comms-featured" onclick="openLB(this)">
-        {img_tag("comms_medico","Inbox comunicazioni del medico")}
-        <div class="comms-featured-label">{svg("message",13)} Inbox comunicazioni — vista Medico</div>
       </div>
     </div>
     <div class="comms-bottom">
