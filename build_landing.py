@@ -482,12 +482,6 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
       <div class="hero-actions">
         <button class="btn btn-primary btn-lg" onclick="openDemo()">Richiedi una demo gratuita</button>
       </div>
-      <div class="hero-stats">
-        <div class="stat-item"><h3>100%</h3><p>Personalizzabile</p></div>
-        <div class="stat-item"><h3>10 min</h3><p>Finestra sicurezza</p></div>
-        <div class="stat-item"><h3>Multi</h3><p>Struttura</p></div>
-        <div class="stat-item"><h3>6</h3><p>Profili di accesso</p></div>
-      </div>
     </div>
     <div class="hero-visual">
       <div class="browser-frame">
