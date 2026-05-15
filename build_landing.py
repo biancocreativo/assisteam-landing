@@ -699,7 +699,7 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
         <div class="pc-icon">{svg("sliders",18)}</div>
         <div>
           <h4>Visibilità moduli configurata dal Super Admin</h4>
-          <p>L'amministratore decide quali moduli clinici ogni profilo può vedere: il fisioterapista vedrà solo i propri, senza accedere a quelli del logopedista o della nutrizione.</p>
+          <p>L'amministratore decide quali moduli clinici ogni profilo può vedere personalizzando al meglio l'esperienza di ogni utente.</p>
         </div>
       </div>
     </div>
