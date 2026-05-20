@@ -32,6 +32,7 @@ IMG_KEYS = [
     "role_admin_crea_paziente","role_admin_pazienti",
     "role_mdb_cartella","role_mdb_cartella_s","role_mdb_comunicazioni",
     "paziente_dashboard","paziente_cartella","paziente_prenota","paziente_comunicazioni",
+    "multi_login","multi_role_select","multi_as_coordinatore","multi_as_operatore",
     "comms_medico","comms_operatore","comms_nuova_msg","comms_alert_panel",
     "comms_coordinatore",
 ]
@@ -90,6 +91,7 @@ def svg(name, size=20, color="currentColor"):
         "folder-user":  '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><circle cx="12" cy="14" r="2"/><path d="M8.5 19c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5"/>',
         "user-laptop":  '<rect x="2" y="3" width="20" height="13" rx="2"/><path d="M8 21h8m-4-5v5"/><circle cx="12" cy="9" r="3"/>',
         "heart":        '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+        "arrow-right":  '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>',
         "pill":         '<path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z"/><line x1="8.5" y1="8.5" x2="15.5" y2="15.5"/>',
         "file-text":    '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>',
         "check-circle": '<polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
@@ -338,6 +340,27 @@ nav{{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop
 .role-features li::before{{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:8px;}}
 .role-types{{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;}}
 .role-type-chip{{font-size:.73rem;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(116,179,206,.1);border:1px solid rgba(116,179,206,.22);color:var(--teal-dark);}}
+
+/* ── MULTI-RUOLO ── */
+#multi-ruolo{{background:var(--navy);color:var(--white);}}
+#multi-ruolo .label{{color:var(--teal);background:rgba(116,179,206,.15);}}
+#multi-ruolo .section-head h2{{color:var(--white);}}
+#multi-ruolo .section-head p{{color:rgba(255,255,255,.6);}}
+.multi-flow{{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:center;margin-top:56px;}}
+.flow-step{{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;}}
+.flow-step-head{{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px;}}
+.flow-step-num{{width:26px;height:26px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--navy);flex-shrink:0;}}
+.flow-step-head span{{font-size:.88rem;font-weight:700;color:var(--white);}}
+.flow-step img,.flow-step .placeholder{{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block;cursor:zoom-in;transition:opacity .2s;}}
+.flow-step img:hover{{opacity:.88;}}
+.flow-arrow{{display:flex;flex-direction:column;align-items:center;padding:0 20px;color:var(--teal);opacity:.8;}}
+.multi-bottom{{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;}}
+.multi-dash{{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;}}
+.multi-dash-head{{padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px;}}
+.multi-dash-head span{{font-size:.82rem;font-weight:700;color:var(--white);}}
+.multi-dash-badge{{font-size:.7rem;font-weight:700;padding:2px 9px;border-radius:100px;background:rgba(116,179,206,.2);border:1px solid rgba(116,179,206,.3);color:var(--teal);margin-left:auto;}}
+.multi-dash img,.multi-dash .placeholder{{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block;cursor:zoom-in;transition:opacity .2s;}}
+.multi-dash img:hover{{opacity:.88;}}
 
 /* ── FAQ ── */
 #faq{{background:var(--offwhite)}}
@@ -868,6 +891,79 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
         "Calendario personale con storico e prossime visite programmate",
         "Gestione del profilo personale e dei recapiti di contatto",
       ])}
+
+    </div>
+  </div>
+</section>
+
+<!-- MULTI-RUOLO -->
+<section id="multi-ruolo">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">Accesso multi-ruolo</div>
+      <h2>Un utente, più ruoli.<br>Una sola password.</h2>
+      <p>Chi lavora in più vesti non deve avere account separati. Dopo il login, sceglie semplicemente con quale ruolo operare — e il sistema si adatta di conseguenza.</p>
+    </div>
+
+    <div class="multi-flow">
+
+      <!-- Step 1: Login -->
+      <div class="flow-step">
+        <div class="flow-step-head">
+          <div class="flow-step-num">1</div>
+          <span>Accesso con le proprie credenziali</span>
+        </div>
+        <div onclick="openLB(this)" style="cursor:zoom-in">
+          {img_tag("multi_login","Pagina di login AssisTeam24")}
+        </div>
+      </div>
+
+      <!-- Freccia -->
+      <div class="flow-arrow">
+        {svg("arrow-right",28,"var(--teal)")}
+      </div>
+
+      <!-- Step 2: Selezione ruolo -->
+      <div class="flow-step">
+        <div class="flow-step-head">
+          <div class="flow-step-num">2</div>
+          <span>Scelta del ruolo con cui operare</span>
+        </div>
+        <div onclick="openLB(this)" style="cursor:zoom-in">
+          {img_tag("multi_role_select","Schermata selezione ruolo")}
+        </div>
+      </div>
+
+      <!-- Freccia -->
+      <div class="flow-arrow">
+        {svg("arrow-right",28,"var(--teal)")}
+      </div>
+
+      <!-- Step 3: Due dashboard -->
+      <div class="flow-step">
+        <div class="flow-step-head">
+          <div class="flow-step-num">3</div>
+          <span>Dashboard personalizzata per il ruolo scelto</span>
+        </div>
+        <div class="multi-bottom" style="padding:14px;">
+          <div class="multi-dash" onclick="openLB(this)">
+            <div class="multi-dash-head">
+              {svg("clipboard",13,"var(--teal)")}
+              <span>Dashboard</span>
+              <div class="multi-dash-badge">Coordinatore</div>
+            </div>
+            {img_tag("multi_as_coordinatore","Dashboard Coordinatore")}
+          </div>
+          <div class="multi-dash" onclick="openLB(this)">
+            <div class="multi-dash-head">
+              {svg("user-cross",13,"var(--teal)")}
+              <span>Dashboard</span>
+              <div class="multi-dash-badge">Operatore</div>
+            </div>
+            {img_tag("multi_as_operatore","Dashboard Operatore")}
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
