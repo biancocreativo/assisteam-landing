@@ -430,24 +430,24 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
     <div class="demo-body">
       <div id="demoForm">
         <div class="form-row">
-          <div class="form-group"><label>Nome *</label><input type="text" placeholder="Mario" required></div>
-          <div class="form-group"><label>Cognome *</label><input type="text" placeholder="Rossi" required></div>
+          <div class="form-group"><label>Nome *</label><input id="d-nome" type="text" placeholder="Mario" required></div>
+          <div class="form-group"><label>Cognome *</label><input id="d-cognome" type="text" placeholder="Rossi" required></div>
         </div>
-        <div class="form-group"><label>Nome della struttura *</label><input type="text" placeholder="es. Casa di Cura Villa Verde" required></div>
+        <div class="form-group"><label>Nome della struttura *</label><input id="d-struttura" type="text" placeholder="es. Casa di Cura Villa Verde" required></div>
         <div class="form-row">
           <div class="form-group"><label>Tipo di struttura</label>
-            <select><option value="">Seleziona...</option><option>RSA / Casa di riposo</option><option>Clinica privata</option><option>Ospedale</option><option>Ambulatorio</option><option>Centro di riabilitazione</option><option>Altro</option></select>
+            <select id="d-tipo"><option value="">Seleziona...</option><option>RSA / Casa di riposo</option><option>Clinica privata</option><option>Ospedale</option><option>Ambulatorio</option><option>Centro di riabilitazione</option><option>Altro</option></select>
           </div>
           <div class="form-group"><label>Ruolo</label>
-            <select><option value="">Seleziona...</option><option>Direttore sanitario</option><option>Coordinatore infermieristico</option><option>Responsabile IT</option><option>Medico</option><option>Amministratore</option><option>Altro</option></select>
+            <select id="d-ruolo"><option value="">Seleziona...</option><option>Direttore sanitario</option><option>Coordinatore infermieristico</option><option>Responsabile IT</option><option>Medico</option><option>Amministratore</option><option>Altro</option></select>
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Email *</label><input type="email" placeholder="mario.rossi@struttura.it" required></div>
-          <div class="form-group"><label>Telefono</label><input type="tel" placeholder="+39 XXX XXX XXXX"></div>
+          <div class="form-group"><label>Email *</label><input id="d-email" type="email" placeholder="mario.rossi@struttura.it" required></div>
+          <div class="form-group"><label>Telefono</label><input id="d-telefono" type="tel" placeholder="+39 XXX XXX XXXX"></div>
         </div>
-        <div class="form-group"><label>Note o richieste specifiche</label><textarea placeholder="Raccontaci la vostra situazione attuale e cosa vorreste migliorare..."></textarea></div>
-        <button class="form-submit" onclick="submitDemo()">Invia richiesta demo</button>
+        <div class="form-group"><label>Note o richieste specifiche</label><textarea id="d-messaggio" placeholder="Raccontaci la vostra situazione attuale e cosa vorreste migliorare..."></textarea></div>
+        <button class="form-submit" id="demoSubmitBtn" onclick="submitDemo()">Invia richiesta demo</button>
       </div>
       <div class="form-success" id="demoSuccess">
         <div class="s-icon">{svg("check-circle",48,"var(--teal)")}</div>
@@ -980,7 +980,31 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
 function toggleFaq(btn){{const a=btn.nextElementSibling;const isOpen=a.classList.contains('open');document.querySelectorAll('.faq-a.open').forEach(el=>el.classList.remove('open'));document.querySelectorAll('.faq-q.open').forEach(el=>el.classList.remove('open'));if(!isOpen){{a.classList.add('open');btn.classList.add('open');}}}};
 function openDemo(){{document.getElementById('demoModal').classList.add('open');document.body.style.overflow='hidden';}}
 function closeDemo(){{document.getElementById('demoModal').classList.remove('open');document.body.style.overflow='';}}
-function submitDemo(){{document.getElementById('demoForm').style.display='none';document.getElementById('demoSuccess').style.display='block';setTimeout(closeDemo,3500);}}
+async function submitDemo(){{
+  const btn=document.getElementById('demoSubmitBtn');
+  const nome=document.getElementById('d-nome').value.trim();
+  const cognome=document.getElementById('d-cognome').value.trim();
+  const struttura=document.getElementById('d-struttura').value.trim();
+  const email=document.getElementById('d-email').value.trim();
+  if(!nome||!struttura||!email){{alert('Compila i campi obbligatori (Nome, Struttura, Email).');return;}}
+  btn.disabled=true;btn.textContent='Invio in corso...';
+  try{{
+    const r=await fetch('/api/submit-demo',{{
+      method:'POST',
+      headers:{{'Content-Type':'application/json'}},
+      body:JSON.stringify({{
+        nome,cognome,struttura,
+        tipo:document.getElementById('d-tipo').value,
+        ruolo:document.getElementById('d-ruolo').value,
+        email,
+        telefono:document.getElementById('d-telefono').value,
+        messaggio:document.getElementById('d-messaggio').value
+      }})
+    }});
+    if(r.ok){{document.getElementById('demoForm').style.display='none';document.getElementById('demoSuccess').style.display='block';setTimeout(closeDemo,4000);}}
+    else{{throw new Error('Errore server');}}
+  }}catch(e){{btn.disabled=false;btn.textContent='Invia richiesta demo';alert('Si è verificato un errore. Riprova o scrivi a info@assisteam24.it');}}
+}}
 function openLB(card){{
   const img=card.querySelector('img');
   if(!img)return;
