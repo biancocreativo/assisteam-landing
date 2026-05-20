@@ -92,6 +92,7 @@ def svg(name, size=20, color="currentColor"):
         "user-laptop":  '<rect x="2" y="3" width="20" height="13" rx="2"/><path d="M8 21h8m-4-5v5"/><circle cx="12" cy="9" r="3"/>',
         "heart":        '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
         "arrow-right":  '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>',
+        "arrow-down":   '<line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>',
         "pill":         '<path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z"/><line x1="8.5" y1="8.5" x2="15.5" y2="15.5"/>',
         "file-text":    '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>',
         "check-circle": '<polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
@@ -346,21 +347,29 @@ nav{{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop
 #multi-ruolo .label{{color:var(--teal);background:rgba(116,179,206,.15);}}
 #multi-ruolo .section-head h2{{color:var(--white);}}
 #multi-ruolo .section-head p{{color:rgba(255,255,255,.6);}}
-.multi-flow{{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:center;margin-top:56px;}}
+.multi-top{{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0;margin-top:52px;margin-bottom:20px;}}
+.flow-arrow{{display:flex;align-items:center;padding:0 24px;color:var(--teal);opacity:.8;}}
 .flow-step{{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;}}
-.flow-step-head{{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px;}}
+.flow-step-head{{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px;}}
 .flow-step-num{{width:26px;height:26px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--navy);flex-shrink:0;}}
-.flow-step-head span{{font-size:.88rem;font-weight:700;color:var(--white);}}
+.flow-step-head span{{font-size:.87rem;font-weight:700;color:var(--white);}}
 .flow-step img,.flow-step .placeholder{{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block;cursor:zoom-in;transition:opacity .2s;}}
 .flow-step img:hover{{opacity:.88;}}
-.flow-arrow{{display:flex;flex-direction:column;align-items:center;padding:0 20px;color:var(--teal);opacity:.8;}}
-.multi-bottom{{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;}}
-.multi-dash{{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;}}
-.multi-dash-head{{padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px;}}
-.multi-dash-head span{{font-size:.82rem;font-weight:700;color:var(--white);}}
-.multi-dash-badge{{font-size:.7rem;font-weight:700;padding:2px 9px;border-radius:100px;background:rgba(116,179,206,.2);border:1px solid rgba(116,179,206,.3);color:var(--teal);margin-left:auto;}}
+.multi-step3{{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;margin-bottom:28px;}}
+.multi-step3-head{{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px;}}
+.multi-step3-head span{{font-size:.87rem;font-weight:700;color:var(--white);}}
+.multi-screens{{display:grid;grid-template-columns:1fr 1fr;gap:0;}}
+.multi-dash{{border-right:1px solid rgba(255,255,255,.08);}}
+.multi-dash:last-child{{border-right:none;}}
+.multi-dash-head{{padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.03);}}
+.multi-dash-head span{{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.7);}}
+.multi-dash-badge{{font-size:.69rem;font-weight:700;padding:2px 9px;border-radius:100px;background:rgba(116,179,206,.2);border:1px solid rgba(116,179,206,.3);color:var(--teal);margin-left:auto;}}
 .multi-dash img,.multi-dash .placeholder{{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block;cursor:zoom-in;transition:opacity .2s;}}
 .multi-dash img:hover{{opacity:.88;}}
+.multi-combos{{border-top:1px solid rgba(255,255,255,.08);padding:18px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}}
+.multi-combos-label{{font-size:.78rem;color:rgba(255,255,255,.4);white-space:nowrap;}}
+.combo-chip{{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:5px 12px;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.75);}}
+.combo-plus{{color:var(--teal);font-weight:700;font-size:.8rem;}}
 
 /* ── FAQ ── */
 #faq{{background:var(--offwhite)}}
@@ -905,67 +914,68 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
       <p>Chi lavora in più vesti non deve avere account separati. Dopo il login, sceglie semplicemente con quale ruolo operare — e il sistema si adatta di conseguenza.</p>
     </div>
 
-    <div class="multi-flow">
-
-      <!-- Step 1: Login -->
+    <!-- Step 1 + 2 -->
+    <div class="multi-top">
       <div class="flow-step">
         <div class="flow-step-head">
           <div class="flow-step-num">1</div>
           <span>Accesso con le proprie credenziali</span>
         </div>
-        <div onclick="openLB(this)" style="cursor:zoom-in">
+        <div onclick="openLB(this)">
           {img_tag("multi_login","Pagina di login AssisTeam24")}
         </div>
       </div>
-
-      <!-- Freccia -->
-      <div class="flow-arrow">
-        {svg("arrow-right",28,"var(--teal)")}
-      </div>
-
-      <!-- Step 2: Selezione ruolo -->
+      <div class="flow-arrow">{svg("arrow-right",32,"var(--teal)")}</div>
       <div class="flow-step">
         <div class="flow-step-head">
           <div class="flow-step-num">2</div>
           <span>Scelta del ruolo con cui operare</span>
         </div>
-        <div onclick="openLB(this)" style="cursor:zoom-in">
+        <div onclick="openLB(this)">
           {img_tag("multi_role_select","Schermata selezione ruolo")}
         </div>
       </div>
-
-      <!-- Freccia -->
-      <div class="flow-arrow">
-        {svg("arrow-right",28,"var(--teal)")}
-      </div>
-
-      <!-- Step 3: Due dashboard -->
-      <div class="flow-step">
-        <div class="flow-step-head">
-          <div class="flow-step-num">3</div>
-          <span>Dashboard personalizzata per il ruolo scelto</span>
-        </div>
-        <div class="multi-bottom" style="padding:14px;">
-          <div class="multi-dash" onclick="openLB(this)">
-            <div class="multi-dash-head">
-              {svg("clipboard",13,"var(--teal)")}
-              <span>Dashboard</span>
-              <div class="multi-dash-badge">Coordinatore</div>
-            </div>
-            {img_tag("multi_as_coordinatore","Dashboard Coordinatore")}
-          </div>
-          <div class="multi-dash" onclick="openLB(this)">
-            <div class="multi-dash-head">
-              {svg("user-cross",13,"var(--teal)")}
-              <span>Dashboard</span>
-              <div class="multi-dash-badge">Operatore</div>
-            </div>
-            {img_tag("multi_as_operatore","Dashboard Operatore")}
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- Freccia verso il basso -->
+    <div style="text-align:center;margin-bottom:20px;color:var(--teal);opacity:.8;">
+      {svg("arrow-down",32,"var(--teal)")}
+    </div>
+
+    <!-- Step 3: Profilo personalizzato -->
+    <div class="multi-step3">
+      <div class="multi-step3-head">
+        <div class="flow-step-num">3</div>
+        <span>Profilo personalizzato per il ruolo scelto</span>
+      </div>
+      <div class="multi-screens">
+        <div class="multi-dash" onclick="openLB(this)">
+          <div class="multi-dash-head">
+            {svg("clipboard",13,"var(--teal)")}
+            <span>Interfaccia completa</span>
+            <div class="multi-dash-badge">Coordinatore</div>
+          </div>
+          {img_tag("multi_as_coordinatore","Dashboard Coordinatore")}
+        </div>
+        <div class="multi-dash" onclick="openLB(this)">
+          <div class="multi-dash-head">
+            {svg("user-cross",13,"var(--teal)")}
+            <span>Interfaccia completa</span>
+            <div class="multi-dash-badge">Operatore</div>
+          </div>
+          {img_tag("multi_as_operatore","Dashboard Operatore")}
+        </div>
+      </div>
+      <div class="multi-combos">
+        <span class="multi-combos-label">Funziona anche con:</span>
+        <span class="combo-chip">{svg("stethoscope",12,"var(--teal)")} Medico <span class="combo-plus">+</span> Coordinatore</span>
+        <span class="combo-chip">{svg("stethoscope",12,"var(--teal)")} Medico <span class="combo-plus">+</span> Operatore</span>
+        <span class="combo-chip">{svg("settings",12,"var(--teal)")} Super Admin <span class="combo-plus">+</span> Coordinatore</span>
+        <span class="combo-chip">{svg("settings",12,"var(--teal)")} Super Admin <span class="combo-plus">+</span> Operatore</span>
+        <span class="combo-chip">{svg("clipboard",12,"var(--teal)")} Coordinatore <span class="combo-plus">+</span> Operatore</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
