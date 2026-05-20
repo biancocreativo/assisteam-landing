@@ -941,7 +941,7 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
             <span class="faq-icon">{svg("plus",12)}</span>
           </button>
           <div class="faq-a">
-            <p>Compila il form "Richiedi Demo" con i tuoi dati e le esigenze della struttura. Ti contatteremo entro 24 ore per organizzare una sessione personalizzata in cui mostreremo il sistema in azione, risponderemo a tutte le domande e valuteremo insieme la soluzione più adatta.</p>
+            <p>Dopo aver compilato il form riceverai accesso a una versione dimostrativa di AssisTeam24 con funzionalità selezionate e un numero limitato di azioni esplorabili. È il modo più diretto per toccare con mano il sistema, navigare le sezioni principali e capire se fa al caso tuo — senza impegno.</p>
           </div>
         </div>
 
