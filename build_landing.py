@@ -337,6 +337,21 @@ nav{{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop
 .role-types{{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;}}
 .role-type-chip{{font-size:.73rem;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(116,179,206,.1);border:1px solid rgba(116,179,206,.22);color:var(--teal-dark);}}
 
+/* ── FAQ ── */
+#faq{{background:var(--offwhite)}}
+.faq-inner{{max-width:760px;margin:0 auto;}}
+.faq-list{{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--white);}}
+.faq-item{{border-bottom:1px solid var(--border);}}
+.faq-item:last-child{{border-bottom:none;}}
+.faq-q{{width:100%;background:none;border:none;padding:22px 26px;text-align:left;font-family:'Outfit',sans-serif;font-size:.97rem;font-weight:700;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background .18s;}}
+.faq-q:hover{{background:rgba(116,179,206,.04);}}
+.faq-q.open{{color:var(--teal-dark);}}
+.faq-icon{{width:22px;height:22px;border-radius:50%;background:rgba(116,179,206,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal);transition:transform .25s;}}
+.faq-q.open .faq-icon{{transform:rotate(45deg);background:rgba(116,179,206,.2);}}
+.faq-a{{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;}}
+.faq-a.open{{max-height:300px;}}
+.faq-a p{{padding:0 26px 20px;font-size:.91rem;color:var(--muted);line-height:1.7;}}
+
 /* ── CTA ── */
 #cta{{background:var(--navy);color:var(--white);text-align:center;}}
 #cta h2{{font-size:clamp(2rem,3.5vw,3rem);color:var(--white);margin-bottom:16px;}}
@@ -849,6 +864,92 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:48px">
+      <div class="label">Domande frequenti</div>
+      <h2>Hai qualche dubbio?</h2>
+      <p>Le risposte alle domande più comuni su AssisTeam24.</p>
+    </div>
+    <div class="faq-inner">
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            A chi si rivolge AssisTeam24?
+            <span class="faq-icon">{svg("plus",12)}</span>
+          </button>
+          <div class="faq-a">
+            <p>AssisTeam24 è pensato per strutture sanitarie residenziali e semi-residenziali: RSA, case di cura, comunità terapeutiche, centri diurni e strutture riabilitative. È adatto a qualsiasi realtà che gestisce pazienti con cartella clinica digitale e personale multi-ruolo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Devo installare qualcosa sul computer?
+            <span class="faq-icon">{svg("plus",12)}</span>
+          </button>
+          <div class="faq-a">
+            <p>No. AssisTeam24 è completamente web-based: funziona su qualsiasi browser aggiornato da computer, tablet o smartphone. Non richiede installazioni, aggiornamenti manuali o configurazioni tecniche da parte della struttura.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Quanto tempo serve per formare il personale?
+            <span class="faq-icon">{svg("plus",12)}</span>
+          </button>
+          <div class="faq-a">
+            <p>L'interfaccia è progettata per essere intuitiva anche per chi non ha familiarità con i gestionali sanitari. Ogni profilo vede solo le funzioni di sua competenza, il che riduce drasticamente la curva di apprendimento. Nella demo gratuita mostriamo il sistema al tuo team direttamente.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            I dati dei pazienti sono al sicuro?
+            <span class="faq-icon">{svg("plus",12)}</span>
+          </button>
+          <div class="faq-a">
+            <p>Sì. AssisTeam24 è conforme al GDPR: i dati sono crittografati, gli accessi sono profilati per ruolo e ogni modifica alla cartella clinica viene tracciata con timestamp. Inoltre, le operazioni ad alto impatto clinico richiedono una conferma esplicita prima di essere registrate.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Posso personalizzarlo per la mia struttura?
+            <span class="faq-icon">{svg("plus",12)}</span>
+          </button>
+          <div class="faq-a">
+            <p>Sì. Il Super Amministratore può configurare quali moduli della cartella clinica sono visibili per ogni profilo utente, adattando l'esperienza alle esigenze specifiche della struttura. I ruoli, i permessi e la visibilità dei contenuti sono tutti configurabili.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Quanti utenti posso aggiungere?
+            <span class="faq-icon">{svg("plus",12)}</span>
+          </button>
+          <div class="faq-a">
+            <p>Non c'è un limite fisso al numero di utenti. Il Super Amministratore può creare e gestire tutti i profili necessari, assegnando a ciascuno il ruolo corretto: medico, coordinatore, operatore sanitario, medico di base e altri profili specialistici.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Come funziona la demo gratuita?
+            <span class="faq-icon">{svg("plus",12)}</span>
+          </button>
+          <div class="faq-a">
+            <p>Compila il form "Richiedi Demo" con i tuoi dati e le esigenze della struttura. Ti contatteremo entro 24 ore per organizzare una sessione personalizzata in cui mostreremo il sistema in azione, risponderemo a tutte le domande e valuteremo insieme la soluzione più adatta.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="cta">
   <div class="container">
@@ -876,6 +977,7 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
 </footer>
 
 <script>
+function toggleFaq(btn){{const a=btn.nextElementSibling;const isOpen=a.classList.contains('open');document.querySelectorAll('.faq-a.open').forEach(el=>el.classList.remove('open'));document.querySelectorAll('.faq-q.open').forEach(el=>el.classList.remove('open'));if(!isOpen){{a.classList.add('open');btn.classList.add('open');}}}};
 function openDemo(){{document.getElementById('demoModal').classList.add('open');document.body.style.overflow='hidden';}}
 function closeDemo(){{document.getElementById('demoModal').classList.remove('open');document.body.style.overflow='';}}
 function submitDemo(){{document.getElementById('demoForm').style.display='none';document.getElementById('demoSuccess').style.display='block';setTimeout(closeDemo,3500);}}
