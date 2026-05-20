@@ -31,6 +31,7 @@ IMG_KEYS = [
     "role_operatore_controlli","role_operatore_controlli_s",
     "role_admin_crea_paziente","role_admin_pazienti",
     "role_mdb_cartella","role_mdb_cartella_s","role_mdb_comunicazioni",
+    "paziente_dashboard","paziente_cartella","paziente_prenota","paziente_comunicazioni",
     "comms_medico","comms_operatore","comms_nuova_msg","comms_alert_panel",
     "comms_coordinatore",
 ]
@@ -88,6 +89,7 @@ def svg(name, size=20, color="currentColor"):
         "settings":     '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
         "folder-user":  '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><circle cx="12" cy="14" r="2"/><path d="M8.5 19c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5"/>',
         "user-laptop":  '<rect x="2" y="3" width="20" height="13" rx="2"/><path d="M8 21h8m-4-5v5"/><circle cx="12" cy="9" r="3"/>',
+        "heart":        '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
         "pill":         '<path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z"/><line x1="8.5" y1="8.5" x2="15.5" y2="15.5"/>',
         "file-text":    '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>',
         "check-circle": '<polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
@@ -858,6 +860,13 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
         "Comunicazione diretta con il team medico e infermieristico",
         "Ricezione di alert su variazioni cliniche rilevanti",
         "Accesso limitato ai soli pazienti di pertinenza",
+      ])}
+      {role_card("paziente_dashboard","heart","Paziente","Portale personale del paziente",[
+        "Visualizzazione della propria cartella clinica e dei dati sanitari",
+        "Prenotazione di visite e appuntamenti direttamente dal portale",
+        "Ricezione di comunicazioni dalla struttura e dal team curante",
+        "Calendario personale con storico e prossime visite programmate",
+        "Gestione del profilo personale e dei recapiti di contatto",
       ])}
 
     </div>
