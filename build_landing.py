@@ -806,7 +806,7 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
 <section id="ruoli">
   <div class="container">
     <div class="section-head">
-      <div class="label">6 profili di accesso</div>
+      <div class="label">7 profili di accesso</div>
       <h2>Uno strumento per ogni ruolo.</h2>
       <p>AssisTeam24 si adatta al profilo di ogni operatore sanitario, mostrando solo le funzionalità rilevanti e riducendo il carico cognitivo quotidiano.</p>
     </div>
@@ -931,7 +931,7 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
             <span class="faq-icon">{svg("plus",12)}</span>
           </button>
           <div class="faq-a">
-            <p>Non c'è un limite fisso al numero di utenti. Il Super Amministratore può creare e gestire tutti i profili necessari, assegnando a ciascuno il ruolo corretto: medico, coordinatore, operatore sanitario, medico di base e altri profili specialistici.</p>
+            <p>Non c'è un limite fisso al numero di utenti. Il Super Amministratore può creare e gestire tutti i profili necessari, assegnando a ciascuno il ruolo corretto: medico, coordinatore, operatore sanitario, medico di base, amministrazione, paziente e super amministratore.</p>
           </div>
         </div>
 

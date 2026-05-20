@@ -54,8 +54,8 @@ function userEmail(nome, struttura, tipo, ruolo, email) {
           <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f8fb;border:1px solid #dde8f0;border-radius:10px;">
             <tr><td style="padding:18px 20px;">
               <div style="font-size:22px;margin-bottom:8px;">👥</div>
-              <div style="font-size:13px;font-weight:700;color:#172A3A;margin-bottom:5px;">6 Profili di Accesso</div>
-              <div style="font-size:12px;color:#6b8899;line-height:1.5;">Medico, coordinatore, operatore, super admin e altri — ognuno con la propria interfaccia dedicata.</div>
+              <div style="font-size:13px;font-weight:700;color:#172A3A;margin-bottom:5px;">7 Profili di Accesso</div>
+              <div style="font-size:12px;color:#6b8899;line-height:1.5;">Medico, coordinatore, operatore, medico di base, amministrazione, paziente e super admin — ognuno con la propria interfaccia dedicata.</div>
             </td></tr>
           </table>
         </td>
