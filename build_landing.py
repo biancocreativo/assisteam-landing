@@ -32,6 +32,7 @@ IMG_KEYS = [
     "role_admin_crea_paziente","role_admin_pazienti",
     "role_mdb_cartella","role_mdb_cartella_s","role_mdb_comunicazioni",
     "paziente_dashboard","paziente_cartella","paziente_prenota","paziente_comunicazioni",
+    "cartella_allergie",
     "multi_login","multi_role_select","multi_as_coordinatore","multi_as_operatore",
     "comms_medico","comms_operatore","comms_nuova_msg","comms_alert_panel",
     "comms_coordinatore",
@@ -614,33 +615,33 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
     <div class="feature2-grid">
       <div class="feature2-copy">
         <div class="label">Sicurezza clinica</div>
-        <h2>Allergie e intolleranze sempre in prima vista.</h2>
-        <p>Nella cartella clinica di ogni paziente, le allergie e le intolleranze note sono visibili immediatamente — prima di qualsiasi azione clinica. Nessun operatore può ignorarle per distrazione.</p>
+        <h2>Allergie e intolleranze: una sezione dedicata in cartella.</h2>
+        <p>Nella cartella clinica di ogni paziente è presente una sezione dedicata esclusivamente ad allergie e intolleranze. Strutturata e sempre accessibile, garantisce che nessuna informazione critica venga persa o ignorata.</p>
         <div class="allergy-callout">
           <div class="ac-icon">{svg("alert",18)}</div>
           <div>
-            <h4>Segnalazione visiva immediata</h4>
-            <p>Allergie e intolleranze appaiono in evidenza nella parte alta della cartella clinica, con indicatore colorato e testo ben leggibile — visibili prima ancora di scorrere la pagina.</p>
+            <h4>Organizzate per tipo e sempre consultabili</h4>
+            <p>La sezione è filtrable per categoria — Alimentari e Mediche — con nome, tipo e reazione registrati in modo strutturato. Chiunque acceda alla cartella può verificarle immediatamente.</p>
           </div>
         </div>
         <ul class="feature2-points">
           <li>
             <div class="feature2-icon red">{svg("alert",18)}</div>
-            <div class="txt"><strong>Allergie ai farmaci in evidenza</strong>Prima di somministrare qualsiasi terapia, l'operatore vede le allergie note al farmaco — riducendo il rischio di reazioni avverse.</div>
+            <div class="txt"><strong>Allergie ai farmaci sempre visibili</strong>Prima di somministrare una terapia, l'operatore può consultare le allergie note — riducendo concretamente il rischio di reazioni avverse.</div>
           </li>
           <li>
             <div class="feature2-icon red">{svg("list",18)}</div>
-            <div class="txt"><strong>Intolleranze alimentari e ambientali</strong>Oltre ai farmaci, la cartella riporta intolleranze alimentari e ambientali — utili per infermieri, operatori e il servizio di ristorazione interna.</div>
+            <div class="txt"><strong>Intolleranze alimentari e mediche separate</strong>Le intolleranze sono distinte per categoria, utili per tutto il team: infermieri, operatori e il servizio di ristorazione interna.</div>
           </li>
           <li>
-            <div class="feature2-icon teal">{svg("lock",18)}</div>
-            <div class="txt"><strong>Modificabili solo dal medico</strong>Le allergie possono essere aggiunte o modificate esclusivamente dal medico responsabile, garantendo l'affidabilità dell'informazione.</div>
+            <div class="feature2-icon teal">{svg("clipboard",18)}</div>
+            <div class="txt"><strong>Nome, tipo e reazione registrati</strong>Ogni voce riporta il nome dell'allergene, la categoria e la reazione associata — nessuna ambiguità, tutto tracciato in modo chiaro.</div>
           </li>
         </ul>
       </div>
       <div class="feature2-screen" onclick="openLB(this)">
-        {img_tag("cartella_overview_top","Cartella clinica con allergie in evidenza")}
-        <div class="feature2-screen-label">{svg("alert",13)} Allergie e intolleranze nella cartella clinica</div>
+        {img_tag("cartella_allergie","Sezione allergie e intolleranze nella cartella clinica")}
+        <div class="feature2-screen-label">{svg("alert",13)} Sezione allergie e intolleranze — cartella clinica</div>
       </div>
     </div>
   </div>
