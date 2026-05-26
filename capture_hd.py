@@ -60,23 +60,10 @@ with sync_playwright() as p:
     shot(pg, "cartella_overview_top")
     shot(pg, "cartella_overview_mid", scroll_y=500)
 
-    # Cartella — sezione moduli (in basso dove ci sono tutti i moduli)
-    # scroll verso il fondo dove compaiono i moduli personalizzabili
-    for sy in [800, 1200, 1600, 2000, 2400]:
-        pg.evaluate(f"window.scrollTo(0,{sy})")
-        time.sleep(0.5)
-        h = pg.evaluate("document.body.scrollHeight")
-        if sy >= h - 1200:
-            break
-    shot(pg, "cartella_moduli_section")
-    # full-page scroll per catturare anche il pannello superiore dei moduli
+    # Cartella — sezione moduli specialistici (scroll 1800 = zona giusta)
     go(pg, "/staff/medico/pazienti/PT-301")
-    pg.evaluate("window.scrollTo(0, document.body.scrollHeight * 0.55)")
-    time.sleep(0.8)
-    shot(pg, "cartella_moduli_top")
-    pg.evaluate("window.scrollTo(0, document.body.scrollHeight * 0.75)")
-    time.sleep(0.8)
-    shot(pg, "cartella_moduli_mid")
+    shot(pg, "cartella_moduli_section", scroll_y=1800)
+    shot(pg, "cartella_moduli_mid", scroll_y=2200)
 
     # Sub-pages — terapia
     go(pg, "/staff/medico/pazienti/PT-301/terapia")
