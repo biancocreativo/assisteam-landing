@@ -692,7 +692,7 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
       {lbcard("sub_diaria","sub_diaria_s","Diario clinico","Diario clinico quotidiano e note")}
       {lbcard("sub_parametri","sub_parametri_s","Parametri vitali","Rilevazione e storico parametri")}
       {lbcard("sub_presidi","sub_presidi_s","Presidi","Registro presidi e ausili assegnati")}
-      {lbcard("cartella_moduli_section","cartella_moduli_top","Moduli personalizzabili","Servizio psicologico, nutrizione, logopedia e altri moduli specialistici")}
+      {lbcard("cartella_moduli_section","sub_psico","Moduli specialistici","Psicologico, logopedista, fisioterapia, nutrizione e altri moduli specialistici")}
     </div>
   </div>
 </section>
