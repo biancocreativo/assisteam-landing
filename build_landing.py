@@ -36,6 +36,7 @@ IMG_KEYS = [
     "multi_login","multi_role_select","multi_as_coordinatore","multi_as_operatore",
     "comms_medico","comms_operatore","comms_nuova_msg","comms_alert_panel",
     "comms_coordinatore",
+    "sub_presidi_richiedi","coord_farmaci","coord_controlli",
 ]
 imgs = {k: b64(k) for k in IMG_KEYS}
 
@@ -323,6 +324,29 @@ nav{{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop
 .comms-small:hover{{transform:translateY(-3px);box-shadow:var(--shadow-lg);}}
 .comms-small img{{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block;}}
 .comms-small-label{{background:var(--white);padding:9px 14px;font-size:.77rem;font-weight:600;color:var(--muted);border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;}}
+
+/* ── FARMACI & CONTROLLI ── */
+#farmaci-controlli{{background:var(--offwhite);}}
+.fc-grid{{display:grid;grid-template-columns:1fr 1fr;gap:32px;}}
+.fc-panel{{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);}}
+.fc-panel-head{{padding:22px 26px 18px;border-bottom:1px solid var(--border);}}
+.fc-panel-tag{{display:inline-flex;align-items:center;gap:7px;font-size:.75rem;font-weight:700;letter-spacing:.05em;padding:3px 12px;border-radius:100px;margin-bottom:10px;}}
+.fc-panel-tag.paziente{{background:rgba(116,179,206,.12);border:1px solid rgba(116,179,206,.25);color:var(--teal-dark);}}
+.fc-panel-tag.reparto{{background:rgba(23,42,58,.07);border:1px solid rgba(23,42,58,.15);color:var(--navy);}}
+.fc-panel-head h3{{font-family:'DM Serif Display',serif;font-size:1.3rem;font-weight:400;color:var(--navy);margin-bottom:6px;}}
+.fc-panel-head p{{font-size:.88rem;color:var(--muted);line-height:1.6;}}
+.fc-screens{{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--border);}}
+.fc-screen{{border-right:1px solid var(--border);cursor:zoom-in;overflow:hidden;transition:opacity .2s;}}
+.fc-screen:last-child{{border-right:none;}}
+.fc-screen:hover{{opacity:.88;}}
+.fc-screen img,.fc-screen .placeholder{{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block;}}
+.fc-screen-label{{padding:8px 12px;font-size:.72rem;font-weight:600;color:var(--muted);border-top:1px solid var(--border);display:flex;align-items:center;gap:5px;background:var(--white);}}
+.fc-points{{list-style:none;padding:18px 26px 22px;display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--border);}}
+.fc-points li{{display:flex;align-items:flex-start;gap:10px;font-size:.87rem;color:var(--muted);line-height:1.5;}}
+.fc-point-dot{{width:20px;height:20px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}}
+.fc-point-dot.teal{{background:rgba(116,179,206,.15);color:var(--teal);}}
+.fc-point-dot.navy{{background:rgba(23,42,58,.08);color:var(--navy);}}
+@media(max-width:900px){{.fc-grid{{grid-template-columns:1fr;}}}}
 
 /* ── FUNZIONALITÀ ── */
 #funzionalita{{background:var(--white)}}
@@ -767,6 +791,68 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
           </li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FARMACI & CONTROLLI -->
+<section id="farmaci-controlli">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">Farmaci e presidi</div>
+      <h2>Gestione farmaci del paziente e del reparto.</h2>
+      <p>Dalla richiesta di un presidio per il singolo paziente alla ricezione dei farmaci del reparto, fino ai controlli di emergenza — tutto tracciato e accessibile per chi di competenza.</p>
+    </div>
+    <div class="fc-grid">
+
+      <!-- PAZIENTE -->
+      <div class="fc-panel">
+        <div class="fc-panel-head">
+          <div class="fc-panel-tag paziente">{svg("heart",12)} Del paziente</div>
+          <h3>Presidi e richieste farmaci</h3>
+          <p>Dalla cartella del paziente è possibile visualizzare i presidi in uso, richiederne di nuovi — interni o da familiari — e tenere traccia di ogni assegnazione con relativi allegati.</p>
+        </div>
+        <div class="fc-screens">
+          <div class="fc-screen" onclick="openLBSrc('{imgs.get('sub_presidi','')}','Presidi paziente')">
+            {img_tag("sub_presidi","Presidi paziente")}
+            <div class="fc-screen-label">{svg("list",11)} Presidi in uso</div>
+          </div>
+          <div class="fc-screen" onclick="openLBSrc('{imgs.get('sub_presidi_richiedi','')}','Richiesta presidio')">
+            {img_tag("sub_presidi_richiedi","Richiesta presidio")}
+            <div class="fc-screen-label">{svg("arrow-right",11)} Richiedi presidio</div>
+          </div>
+        </div>
+        <ul class="fc-points">
+          <li><div class="fc-point-dot teal">{svg("check",12)}</div>Lista presidi in uso con categoria (mobilità, respiratorio…)</li>
+          <li><div class="fc-point-dot teal">{svg("check",12)}</div>Richiesta Interno o Esterno (farmaci portati dai familiari)</li>
+          <li><div class="fc-point-dot teal">{svg("check",12)}</div>Allegati per ogni presidio assegnato</li>
+        </ul>
+      </div>
+
+      <!-- REPARTO -->
+      <div class="fc-panel">
+        <div class="fc-panel-head">
+          <div class="fc-panel-tag reparto">{svg("alert",12)} Del reparto</div>
+          <h3>Farmaci e controlli di emergenza</h3>
+          <p>Il coordinatore gestisce la ricezione dei farmaci consegnati dai familiari e supervisiona i controlli di emergenza del reparto: carrello, defibrillatore, farmacia e decontaminazioni.</p>
+        </div>
+        <div class="fc-screens">
+          <div class="fc-screen" onclick="openLBSrc('{imgs.get('coord_farmaci','')}','Ricezione farmaci reparto')">
+            {img_tag("coord_farmaci","Ricezione farmaci reparto")}
+            <div class="fc-screen-label">{svg("list",11)} Ricezione farmaci</div>
+          </div>
+          <div class="fc-screen" onclick="openLBSrc('{imgs.get('operatore_controlli','')}','Controlli d\'emergenza')">
+            {img_tag("operatore_controlli","Controlli d'emergenza")}
+            <div class="fc-screen-label">{svg("alert",11)} Controlli d'emergenza</div>
+          </div>
+        </div>
+        <ul class="fc-points">
+          <li><div class="fc-point-dot navy">{svg("check",12)}</div>Ricezione farmaci da familiari con firma e tracciamento</li>
+          <li><div class="fc-point-dot navy">{svg("check",12)}</div>Carrello di emergenza, checklist defibrillatore e farmacia</li>
+          <li><div class="fc-point-dot navy">{svg("check",12)}</div>Decontaminazione strumenti con registrazione per mese</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
