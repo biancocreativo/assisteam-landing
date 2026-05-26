@@ -59,7 +59,7 @@ def panel_img(key, alt, cap):
         return f'<img src="{src}" alt="{alt}" onclick="openLBSrc(\'{src}\',\'{cap_escaped}\')" loading="lazy">'
     return f'<div class="placeholder">{alt}</div>'
 
-def role_card(img_key, badge_icon, badge_label, title, features, chips=None):
+def role_card(img_key, badge_icon, badge_label, title, features, chips=None, note=""):
     sc = imgs.get(img_key,"")
     if sc:
         img_html = f'<div class="role-screenshot-wrap" onclick="openLBSrc(\'{sc}\',\'{badge_label}\')" style="cursor:zoom-in"><img src="{sc}" alt="{badge_label}" loading="lazy"></div>'
@@ -77,6 +77,7 @@ def role_card(img_key, badge_icon, badge_label, title, features, chips=None):
           <h3>{title}</h3>
           <ul class="role-features">{feat_li}</ul>
           {chips_html}
+          {note}
         </div>
       </div>"""
 
@@ -348,31 +349,19 @@ nav{{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop
 .role-features li::before{{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:8px;}}
 .role-types{{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;}}
 .role-type-chip{{font-size:.73rem;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(116,179,206,.1);border:1px solid rgba(116,179,206,.22);color:var(--teal-dark);}}
-
-/* ── ACCESSO PROFILATO / MDR ── */
-#accesso-profilato{{background:var(--white);}}
-.ap-grid{{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}}
-.ap-copy h2{{font-size:clamp(1.9rem,3vw,2.6rem);margin-bottom:16px;}}
-.ap-copy > p{{color:var(--muted);font-size:1.02rem;line-height:1.75;margin-bottom:32px;}}
-.ap-tiers{{display:flex;flex-direction:column;gap:12px;}}
-.ap-tier{{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:12px;border:1px solid var(--border);background:var(--offwhite);}}
-.ap-tier-icon{{width:38px;height:38px;border-radius:9px;background:rgba(116,179,206,.12);color:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}}
-.ap-tier-body{{flex:1;}}
-.ap-tier-body strong{{font-family:'Outfit',sans-serif;font-weight:700;font-size:.9rem;color:var(--navy);display:block;margin-bottom:3px;}}
-.ap-tier-body span{{font-size:.83rem;color:var(--muted);line-height:1.45;}}
-.ap-tier-chips{{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;}}
-.ap-tier-chip{{font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:100px;background:rgba(116,179,206,.1);border:1px solid rgba(116,179,206,.2);color:var(--teal-dark);}}
-.mdr-card{{background:var(--navy);border-radius:20px;padding:36px 36px 32px;box-shadow:0 24px 64px rgba(23,42,58,.22);position:relative;overflow:hidden;}}
-.mdr-card::before{{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(116,179,206,.07);pointer-events:none;}}
-.mdr-card-badge{{display:inline-flex;align-items:center;gap:7px;background:rgba(116,179,206,.18);border:1px solid rgba(116,179,206,.3);border-radius:100px;padding:5px 14px;font-size:.78rem;font-weight:700;color:var(--teal);letter-spacing:.04em;margin-bottom:20px;}}
-.mdr-card h3{{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--white);font-weight:400;line-height:1.25;margin-bottom:8px;}}
-.mdr-card > p{{font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:26px;}}
-.mdr-access-list{{list-style:none;display:flex;flex-direction:column;gap:11px;}}
-.mdr-access-list li{{display:flex;align-items:center;gap:11px;font-size:.9rem;color:rgba(255,255,255,.85);line-height:1.45;}}
-.mdr-check{{width:22px;height:22px;border-radius:6px;background:rgba(116,179,206,.2);border:1px solid rgba(116,179,206,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal);}}
-.mdr-divider{{height:1px;background:rgba(255,255,255,.08);margin:22px 0;}}
-.mdr-note{{font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.5;}}
-@media(max-width:900px){{.ap-grid{{grid-template-columns:1fr;gap:40px;}}}}
+.role-variants{{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;border-top:1px solid var(--border);padding-top:14px;}}
+.role-variant{{border-radius:10px;padding:12px 14px;}}
+.role-variant.mdg{{background:rgba(116,179,206,.07);border:1px solid rgba(116,179,206,.2);}}
+.role-variant.mdr{{background:rgba(23,42,58,.05);border:1px solid rgba(23,42,58,.14);}}
+.role-variant-label{{font-family:'Outfit',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.04em;margin-bottom:7px;display:flex;align-items:center;gap:5px;}}
+.role-variant.mdg .role-variant-label{{color:var(--teal-dark);}}
+.role-variant.mdr .role-variant-label{{color:var(--navy);}}
+.role-variant-badge{{font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:100px;}}
+.role-variant.mdg .role-variant-badge{{background:rgba(116,179,206,.2);border:1px solid rgba(116,179,206,.35);color:var(--teal-dark);}}
+.role-variant.mdr .role-variant-badge{{background:rgba(23,42,58,.1);border:1px solid rgba(23,42,58,.2);color:var(--navy);}}
+.role-variant ul{{list-style:none;display:flex;flex-direction:column;gap:4px;}}
+.role-variant ul li{{font-size:.78rem;color:var(--muted);line-height:1.4;padding-left:10px;position:relative;}}
+.role-variant ul li::before{{content:'';position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--teal);}}
 
 /* ── MULTI-RUOLO ── */
 #multi-ruolo{{background:var(--navy);color:var(--white);}}
@@ -622,7 +611,26 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
         "Calendario visite e appuntamenti",
         "Piano Assistenziale Individuale (PAI) e scale di valutazione",
         "Comunicazioni con il team multidisciplinare",
-      ])}
+      ], note='''<div class="role-variants">
+          <div class="role-variant mdg">
+            <div class="role-variant-label"><span class="role-variant-badge">MDG</span> Medico di Guardia</div>
+            <ul>
+              <li>Pazienti assegnati nel turno</li>
+              <li>Terapie e prescrizioni del reparto</li>
+              <li>Alert e urgenze del turno</li>
+              <li>Diaria e note cliniche</li>
+            </ul>
+          </div>
+          <div class="role-variant mdr">
+            <div class="role-variant-label"><span class="role-variant-badge">MDR</span> Medico Dirigente</div>
+            <ul>
+              <li>Tutti i reparti e tutti i pazienti</li>
+              <li>Visione globale cartelle cliniche</li>
+              <li>Dati aggregati intera struttura</li>
+              <li>Alert clinici su tutti i reparti</li>
+            </ul>
+          </div>
+        </div>''')}
 
       {role_card("role_coord_turni","clipboard","Coordinatore di reparto","Gestione turni del personale",[
         "Pianificazione e visualizzazione turni settimanali",
@@ -670,65 +678,6 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
         "Calendario personale con storico e prossime visite programmate",
         "Gestione del profilo personale e dei recapiti di contatto",
       ])}
-
-    </div>
-  </div>
-</section>
-
-<!-- ACCESSO PROFILATO / MDR -->
-<section id="accesso-profilato">
-  <div class="container">
-    <div class="ap-grid">
-
-      <div class="ap-copy">
-        <div class="label">Accessi profilati</div>
-        <h2>Ogni utente vede solo ciò che gli serve.</h2>
-        <p>AssisTeam24 non mostra tutto a tutti. Ogni profilo accede a un'esperienza filtrata sul proprio ruolo: nessuna funzione superflua, nessuna informazione fuori contesto. Il Super Amministratore configura i permessi per struttura, reparto e singolo utente.</p>
-        <div class="ap-tiers">
-          <div class="ap-tier">
-            <div class="ap-tier-icon">{svg("user-cross",18)}</div>
-            <div class="ap-tier-body">
-              <strong>Operatore sanitario</strong>
-              <span>Vede le terapie da somministrare, la diaria e i controlli del turno assegnato.</span>
-              <div class="ap-tier-chips"><span class="ap-tier-chip">Terapie del giorno</span><span class="ap-tier-chip">Turni assegnati</span><span class="ap-tier-chip">Parametri vitali</span></div>
-            </div>
-          </div>
-          <div class="ap-tier">
-            <div class="ap-tier-icon">{svg("stethoscope",18)}</div>
-            <div class="ap-tier-body">
-              <strong>Medico</strong>
-              <span>Accede alle cartelle cliniche, alle terapie prescritte e al PAI dei propri pazienti.</span>
-              <div class="ap-tier-chips"><span class="ap-tier-chip">Cartelle cliniche</span><span class="ap-tier-chip">Prescrizioni</span><span class="ap-tier-chip">Scale di valutazione</span></div>
-            </div>
-          </div>
-          <div class="ap-tier">
-            <div class="ap-tier-icon">{svg("clipboard",18)}</div>
-            <div class="ap-tier-body">
-              <strong>Coordinatore di reparto</strong>
-              <span>Gestisce turni, personale e comunicazioni interne del proprio reparto.</span>
-              <div class="ap-tier-chips"><span class="ap-tier-chip">Turni personale</span><span class="ap-tier-chip">Alert reparto</span><span class="ap-tier-chip">Farmaci</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="mdr-card">
-          <div class="mdr-card-badge">{svg("search",13)} &nbsp;Visione completa</div>
-          <h3>Medico Dirigente<br><em>MDR</em></h3>
-          <p>Il profilo con la visibilità più ampia: accesso globale a tutta la struttura, tutti i reparti e tutti i dati clinici aggregati — senza restrizioni di reparto o paziente.</p>
-          <ul class="mdr-access-list">
-            <li><div class="mdr-check">{svg("check",12)}</div>Tutti i reparti e tutti i pazienti ricoverati</li>
-            <li><div class="mdr-check">{svg("check",12)}</div>Cartelle cliniche complete di ogni paziente</li>
-            <li><div class="mdr-check">{svg("check",12)}</div>Terapie, somministrazioni e diari in tempo reale</li>
-            <li><div class="mdr-check">{svg("check",12)}</div>Alert clinici attivi su tutta la struttura</li>
-            <li><div class="mdr-check">{svg("check",12)}</div>Andamento clinico globale e dati aggregati</li>
-            <li><div class="mdr-check">{svg("check",12)}</div>Comunicazioni tra reparti e team multidisciplinare</li>
-          </ul>
-          <div class="mdr-divider"></div>
-          <p class="mdr-note">I permessi granulari sono configurabili dal Super Amministratore per ogni struttura e reparto.</p>
-        </div>
-      </div>
 
     </div>
   </div>
