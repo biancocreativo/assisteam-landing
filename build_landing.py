@@ -621,10 +621,10 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
         </div>''')}
 
       {role_card("role_coord_turni","clipboard","Coordinatore di reparto","Gestione turni del personale",[
-        "Pianificazione e visualizzazione turni settimanali",
+        "Pianificazione e gestione dei turni mensili",
         "Monitoraggio disponibilità e sostituzioni",
-        "Gestione anagrafica del personale",
-        "Ricezione e distribuzione farmaci",
+        "Gestione ferie e malattie",
+        "Gestione di richieste di farmaci e presidi",
         "Alert clinici e comunicazioni urgenti",
       ])}
 
@@ -639,7 +639,6 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
       {role_card("superadmin_staff_crea","settings","Super Amministratore","Creazione e configurazione utenti",[
         "Creazione nuovi utenti e assegnazione del profilo",
         "Configurazione permessi granulari per struttura e reparto",
-        "Ogni utente vede solo le funzioni e i reparti di sua competenza",
         "Gestione multi-struttura centralizzata",
         "Monitoraggio alert di sistema e log operativi",
       ])}
