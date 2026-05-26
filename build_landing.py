@@ -614,21 +614,9 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
       ], note='''<div class="role-variants">
           <div class="role-variant mdg">
             <div class="role-variant-label"><span class="role-variant-badge">MDG</span> Medico di Guardia</div>
-            <ul>
-              <li>Pazienti assegnati nel turno</li>
-              <li>Terapie e prescrizioni del reparto</li>
-              <li>Alert e urgenze del turno</li>
-              <li>Diaria e note cliniche</li>
-            </ul>
           </div>
           <div class="role-variant mdr">
             <div class="role-variant-label"><span class="role-variant-badge">MDR</span> Medico Dirigente</div>
-            <ul>
-              <li>Tutti i reparti e tutti i pazienti</li>
-              <li>Visione globale cartelle cliniche</li>
-              <li>Dati aggregati intera struttura</li>
-              <li>Alert clinici su tutti i reparti</li>
-            </ul>
           </div>
         </div>''')}
 
