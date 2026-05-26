@@ -97,6 +97,7 @@ def svg(name, size=20, color="currentColor"):
         "file-text":    '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>',
         "check-circle": '<polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
         "zoom":         '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>',
+        "search":       '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
         "bar-chart":    '<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>',
         "hospital":     '<rect x="3" y="2" width="18" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M8 10h.01M8 14h.01M16 10h.01M16 14h.01"/><line x1="12" y1="4" x2="12" y2="8"/><line x1="10" y1="6" x2="14" y2="6"/>',
         "calendar":     '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
@@ -234,22 +235,27 @@ nav{{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop
 .screen-label{{background:var(--white);padding:11px 16px;font-size:.8rem;font-weight:600;color:var(--muted);border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;}}
 
 /* ── EFFICIENZA ── */
-#efficienza{{background:var(--white)}}
-.efficienza-inner{{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}}
-.efficienza-copy h2,.perso-copy h2{{font-size:clamp(1.9rem,3vw,2.6rem);margin-bottom:20px}}
-.efficienza-copy > p{{color:var(--muted);font-size:1.02rem;line-height:1.75;margin-bottom:28px;}}
-.eff-points{{list-style:none;display:flex;flex-direction:column;gap:18px;}}
-.eff-points li{{display:flex;align-items:flex-start;gap:14px;}}
-.eff-icon{{width:32px;height:32px;border-radius:8px;background:rgba(116,179,206,.15);display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0;margin-top:2px;}}
-.eff-points .txt{{font-size:.95rem;color:var(--navy);line-height:1.6;}}
-.panel-stack{{display:flex;flex-direction:column;gap:20px;}}
-.panel-frame{{background:var(--navy);border-radius:10px;overflow:hidden;box-shadow:var(--shadow-lg);}}
-.panel-bar{{background:#1e3447;padding:9px 14px;display:flex;align-items:center;gap:7px;}}
-.panel-bar-dot{{width:8px;height:8px;border-radius:50%;}}
-.panel-bar-label{{margin-left:6px;font-size:.73rem;color:rgba(255,255,255,.38);font-family:'Outfit',sans-serif;}}
-.panel-frame img{{width:100%;display:block;aspect-ratio:16/7;object-fit:cover;object-position:top;cursor:zoom-in;transition:opacity .2s;}}
-.panel-frame img:hover{{opacity:.9}}
-.panel-caption{{background:var(--offwhite);padding:10px 16px;font-size:.79rem;color:var(--muted);font-weight:600;border-top:1px solid var(--border);}}
+.feature2-grid{{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}}
+.feature2-copy h2{{font-size:clamp(1.9rem,3vw,2.6rem);margin-bottom:20px}}
+.feature2-copy > p{{color:var(--muted);font-size:1.02rem;line-height:1.75;margin-bottom:28px;}}
+.feature2-points{{list-style:none;display:flex;flex-direction:column;gap:16px;}}
+.feature2-points li{{display:flex;align-items:flex-start;gap:14px;}}
+.feature2-icon{{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}}
+.feature2-icon.red{{background:rgba(239,68,68,.1);color:#dc2626;}}
+.feature2-icon.teal{{background:rgba(116,179,206,.12);color:var(--teal);}}
+.feature2-points .txt{{font-size:.93rem;color:var(--navy);line-height:1.6;}}
+.feature2-points .txt strong{{display:block;font-weight:700;margin-bottom:2px;}}
+.allergy-callout{{display:flex;gap:12px;align-items:flex-start;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:12px;padding:16px 18px;margin-bottom:28px;}}
+.allergy-callout .ac-icon{{width:36px;height:36px;border-radius:9px;background:rgba(239,68,68,.1);display:flex;align-items:center;justify-content:center;color:#dc2626;flex-shrink:0;}}
+.allergy-callout h4{{font-family:'Outfit',sans-serif;font-weight:700;font-size:.9rem;color:#dc2626;margin-bottom:3px;}}
+.allergy-callout p{{font-size:.83rem;color:var(--muted);line-height:1.5;}}
+.feature2-screen{{border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border);cursor:zoom-in;transition:transform .2s;}}
+.feature2-screen:hover{{transform:translateY(-3px);}}
+.feature2-screen img{{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block;}}
+.feature2-screen-label{{background:var(--white);padding:10px 16px;font-size:.79rem;font-weight:600;color:var(--muted);border-top:1px solid var(--border);display:flex;align-items:center;gap:7px;}}
+.search-bar-mock{{background:var(--offwhite);border:1px solid var(--border);border-radius:10px;padding:11px 16px;display:flex;align-items:center;gap:10px;margin-bottom:24px;}}
+.search-bar-mock span{{font-size:.88rem;color:var(--muted);flex:1;}}
+.search-bar-mock svg{{color:var(--teal);}}
 
 /* ── SICUREZZA ── */
 #sicurezza{{background:var(--navy);color:var(--white)}}
@@ -436,7 +442,7 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
 .form-success p{{color:var(--muted);font-size:.92rem;}}
 
 @media(max-width:900px){{
-  .hero-inner,.problema-grid,.roles-grid,.efficienza-inner,.sic-grid,.comms-top{{grid-template-columns:1fr}}
+  .hero-inner,.problema-grid,.roles-grid,.feature2-grid,.sic-grid,.comms-top{{grid-template-columns:1fr}}
   .hero-visual,.hero-badge{{display:none}}
   .screens-grid,.features-grid{{grid-template-columns:1fr 1fr}}
   .perso-callout-bar,.dashboards-strip,.comms-bottom,.sic-stat-row{{grid-template-columns:1fr 1fr}}
@@ -510,7 +516,7 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
     </a>
     <ul class="nav-links">
       <li><a href="#cartella">Cartella Clinica</a></li>
-      <li><a href="#efficienza">Semplicità</a></li>
+      <li><a href="#allergie">Sicurezza clinica</a></li>
       <li><a href="#sicurezza">Sicurezza</a></li>
       <li><a href="#personalizzazione">Personalizzazione</a></li>
       <li><a href="#comunicazioni">Comunicazioni</a></li>
@@ -602,40 +608,74 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
 </section>
 
 <!-- EFFICIENZA -->
-<section id="efficienza">
+<!-- ALLERGIE -->
+<section id="allergie">
   <div class="container">
-    <div class="efficienza-inner">
-      <div class="efficienza-copy">
-        <div class="label">Ottimizzazione operativa</div>
-        <h2>Meno tempo sulle schermate, più tempo sui pazienti.</h2>
-        <p>Le attività ripetitive che ogni operatore affronta decine di volte al giorno sono state riprogettate per essere il più rapide possibile.</p>
-        <ul class="eff-points">
-          {eff_li("pill","Terapie multi-paziente:","l'operatore seleziona più pazienti e conferma la somministrazione di una terapia in un solo passaggio, senza ripetere l'operazione paziente per paziente.")}
-          {eff_li("file-text","Diaria collettiva:","è possibile redigere una nota di diaria e applicarla a più pazienti contemporaneamente, personalizzando solo le variazioni individuali — ideale per turni con molti assistiti.")}
-          {eff_li("list","Tracciabilità automatica:","ogni azione viene registrata con timestamp, operatore e contesto clinico, eliminando la compilazione manuale dei registri di reparto.")}
+    <div class="feature2-grid">
+      <div class="feature2-copy">
+        <div class="label">Sicurezza clinica</div>
+        <h2>Allergie e intolleranze sempre in prima vista.</h2>
+        <p>Nella cartella clinica di ogni paziente, le allergie e le intolleranze note sono visibili immediatamente — prima di qualsiasi azione clinica. Nessun operatore può ignorarle per distrazione.</p>
+        <div class="allergy-callout">
+          <div class="ac-icon">{svg("alert",18)}</div>
+          <div>
+            <h4>Segnalazione visiva immediata</h4>
+            <p>Allergie e intolleranze appaiono in evidenza nella parte alta della cartella clinica, con indicatore colorato e testo ben leggibile — visibili prima ancora di scorrere la pagina.</p>
+          </div>
+        </div>
+        <ul class="feature2-points">
+          <li>
+            <div class="feature2-icon red">{svg("alert",18)}</div>
+            <div class="txt"><strong>Allergie ai farmaci in evidenza</strong>Prima di somministrare qualsiasi terapia, l'operatore vede le allergie note al farmaco — riducendo il rischio di reazioni avverse.</div>
+          </li>
+          <li>
+            <div class="feature2-icon red">{svg("list",18)}</div>
+            <div class="txt"><strong>Intolleranze alimentari e ambientali</strong>Oltre ai farmaci, la cartella riporta intolleranze alimentari e ambientali — utili per infermieri, operatori e il servizio di ristorazione interna.</div>
+          </li>
+          <li>
+            <div class="feature2-icon teal">{svg("lock",18)}</div>
+            <div class="txt"><strong>Modificabili solo dal medico</strong>Le allergie possono essere aggiunte o modificate esclusivamente dal medico responsabile, garantendo l'affidabilità dell'informazione.</div>
+          </li>
         </ul>
       </div>
-      <div class="panel-stack">
-        <div class="panel-frame">
-          <div class="panel-bar">
-            <div class="panel-bar-dot" style="background:#ff5f57"></div>
-            <div class="panel-bar-dot" style="background:#febc2e"></div>
-            <div class="panel-bar-dot" style="background:#28c840"></div>
-            <span class="panel-bar-label">Panel Terapie — selezione multi-paziente</span>
-          </div>
-          {panel_img("op_terapie_a","Panel terapie","Panel Terapie — selezione multi-paziente")}
-          <div class="panel-caption">Seleziona più pazienti e somministra in un click</div>
+      <div class="feature2-screen" onclick="openLB(this)">
+        {img_tag("cartella_overview_top","Cartella clinica con allergie in evidenza")}
+        <div class="feature2-screen-label">{svg("alert",13)} Allergie e intolleranze nella cartella clinica</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORICO TERAPIA -->
+<section id="storico-terapia" style="background:var(--offwhite)">
+  <div class="container">
+    <div class="feature2-grid">
+      <div class="feature2-screen" onclick="openLB(this)">
+        {img_tag("sub_terapia","Storico terapie somministrate")}
+        <div class="feature2-screen-label">{svg("list",13)} Storico terapie — ricerca per farmaco, data o operatore</div>
+      </div>
+      <div class="feature2-copy">
+        <div class="label">Storico terapie</div>
+        <h2>Tutto ciò che è stato somministrato, sempre ricercabile.</h2>
+        <p>Lo storico delle terapie somministrate è completo e immediatamente consultabile. Medici e coordinatori possono ricercare qualsiasi somministrazione per farmaco, data, operatore o paziente — senza dover scorrere registri cartacei.</p>
+        <div class="search-bar-mock">
+          {svg("search",16)}
+          <span>Cerca per farmaco, data o operatore...</span>
         </div>
-        <div class="panel-frame">
-          <div class="panel-bar">
-            <div class="panel-bar-dot" style="background:#ff5f57"></div>
-            <div class="panel-bar-dot" style="background:#febc2e"></div>
-            <div class="panel-bar-dot" style="background:#28c840"></div>
-            <span class="panel-bar-label">Panel Diarie — scrittura collettiva</span>
-          </div>
-          {panel_img("op_diarie_a","Panel diarie","Panel Diarie — scrittura collettiva")}
-          <div class="panel-caption">Redigi la diaria una volta, applicala a tutti</div>
-        </div>
+        <ul class="feature2-points">
+          <li>
+            <div class="feature2-icon teal">{svg("search",18)}</div>
+            <div class="txt"><strong>Ricerca avanzata e filtri rapidi</strong>Filtra lo storico per nome del farmaco, intervallo di date, reparto o operatore che ha effettuato la somministrazione.</div>
+          </li>
+          <li>
+            <div class="feature2-icon teal">{svg("clock",18)}</div>
+            <div class="txt"><strong>Ogni somministrazione con timestamp</strong>Data, ora esatta, operatore e paziente sono registrati automaticamente ad ogni somministrazione — nessun dato può essere omesso.</div>
+          </li>
+          <li>
+            <div class="feature2-icon teal">{svg("file-text",18)}</div>
+            <div class="txt"><strong>Storico accessibile al medico in ogni momento</strong>Il medico può consultare l'intero storico del paziente da qualsiasi dispositivo, utile in caso di visite, trasferimenti o rivalutazioni cliniche.</div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
