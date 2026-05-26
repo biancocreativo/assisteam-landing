@@ -581,6 +581,75 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
   </div>
 </section>
 
+<!-- RUOLI -->
+<section id="ruoli">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">7 profili di accesso</div>
+      <h2>Un sistema. Un'interfaccia su misura per ogni ruolo.</h2>
+      <p>Ogni profilo accede a un'esperienza pensata per il suo ruolo: funzionalità, moduli e informazioni diversi per ciascuno. Stesso sistema, esperienze personalizzate.</p>
+    </div>
+    <div class="roles-grid">
+
+      {role_card("role_medico_terapia","stethoscope","Medico","Pagina terapie in evidenza",[
+        "Cartelle cliniche e diario del paziente",
+        "Prescrizione e revisione terapie attive",
+        "Calendario visite e appuntamenti",
+        "Piano Assistenziale Individuale (PAI) e scale di valutazione",
+        "Comunicazioni con il team multidisciplinare",
+      ])}
+
+      {role_card("role_coord_turni","clipboard","Coordinatore di reparto","Gestione turni del personale",[
+        "Pianificazione e visualizzazione turni settimanali",
+        "Monitoraggio disponibilità e sostituzioni",
+        "Gestione anagrafica del personale",
+        "Ricezione e distribuzione farmaci",
+        "Alert clinici e comunicazioni urgenti",
+      ])}
+
+      {role_card("role_operatore_controlli","user-cross","Operatore sanitario","Attività quotidiane semplificate",[
+        "Conferma somministrazione terapie con swipe in un click",
+        "Compilazione diaria e schede di controllo rapido",
+        "Rilevazione parametri vitali con inserimento guidato",
+        "Visualizzazione turni assegnati con countdown fine turno",
+        "Comunicazioni con medico e coordinatore",
+      ],["Infermiere","OSS","Fisioterapista","Nutrizionista","Logopedista","Terapista occupazionale","Psicologo","Assistente sociale","Educatrice","Altro"])}
+
+      {role_card("superadmin_staff_crea","settings","Super Amministratore","Creazione e configurazione utenti",[
+        "Creazione nuovi utenti e assegnazione del profilo",
+        "Configurazione permessi granulari per struttura e reparto",
+        "Ogni utente vede solo le funzioni e i reparti di sua competenza",
+        "Gestione multi-struttura centralizzata",
+        "Monitoraggio alert di sistema e log operativi",
+      ])}
+
+      {role_card("role_admin_crea_paziente","folder-user","Amministrazione","Registrazione nuovo paziente",[
+        "Registrazione nuovi pazienti e gestione anagrafica",
+        "Visualizzazione reparto e stato di ricovero",
+        "Accesso alle informazioni amministrative della cartella",
+        "Coordinamento con il personale sanitario per l'accoglienza",
+        "Gestione documenti, consensi e privacy GDPR",
+      ])}
+
+      {role_card("role_mdb_cartella","user-laptop","Medico di base","Cartella clinica del proprio paziente",[
+        "Visibilità sulle cartelle dei propri assistiti ricoverati",
+        "Possibilità di aggiungere note e aggiornamenti clinici",
+        "Comunicazione diretta con il team medico e infermieristico",
+        "Ricezione di alert su variazioni cliniche rilevanti",
+        "Accesso limitato ai soli pazienti di pertinenza",
+      ])}
+      {role_card("paziente_dashboard","heart","Paziente","Portale personale del paziente",[
+        "Visualizzazione della propria cartella clinica e dei dati sanitari",
+        "Prenotazione di visite e appuntamenti direttamente dal portale",
+        "Ricezione di comunicazioni dalla struttura e dal team curante",
+        "Calendario personale con storico e prossime visite programmate",
+        "Gestione del profilo personale e dei recapiti di contatto",
+      ])}
+
+    </div>
+  </div>
+</section>
+
 <!-- CARTELLA CLINICA -->
 <section id="cartella">
   <div class="container">
@@ -873,75 +942,6 @@ footer{{background:#0f1e2a;padding:28px 32px;display:flex;align-items:center;jus
       <div class="feature-card">{feat_icon("list")}<h3>Tracciabilità completa</h3><p>Log di ogni azione clinica e operativa, con storico somministrazioni e modifiche alla cartella.</p></div>
       <div class="feature-card">{feat_icon("alert")}<h3>Controlli di emergenza</h3><p>Schede rapide per la rilevazione parametri in situazioni critiche, accessibili da operatori e infermieri.</p></div>
       <div class="feature-card">{feat_icon("users")}<h3>Area familiare</h3><p>Modulo dedicato alla comunicazione con familiari e caregiver, con aggiornamenti controllati sullo stato del paziente.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- RUOLI -->
-<section id="ruoli">
-  <div class="container">
-    <div class="section-head">
-      <div class="label">7 profili di accesso</div>
-      <h2>Uno strumento per ogni ruolo.</h2>
-      <p>AssisTeam24 si adatta al profilo di ogni operatore sanitario, mostrando solo le funzionalità rilevanti e riducendo il carico cognitivo quotidiano.</p>
-    </div>
-    <div class="roles-grid">
-
-      {role_card("role_medico_terapia","stethoscope","Medico","Pagina terapie in evidenza",[
-        "Cartelle cliniche e diario del paziente",
-        "Prescrizione e revisione terapie attive",
-        "Calendario visite e appuntamenti",
-        "Piano Assistenziale Individuale (PAI) e scale di valutazione",
-        "Comunicazioni con il team multidisciplinare",
-      ])}
-
-      {role_card("role_coord_turni","clipboard","Coordinatore di reparto","Gestione turni del personale",[
-        "Pianificazione e visualizzazione turni settimanali",
-        "Monitoraggio disponibilità e sostituzioni",
-        "Gestione anagrafica del personale",
-        "Ricezione e distribuzione farmaci",
-        "Alert clinici e comunicazioni urgenti",
-      ])}
-
-      {role_card("role_operatore_controlli","user-cross","Operatore sanitario","Attività quotidiane semplificate",[
-        "Conferma somministrazione terapie con swipe in un click",
-        "Compilazione diaria e schede di controllo rapido",
-        "Rilevazione parametri vitali con inserimento guidato",
-        "Visualizzazione turni assegnati con countdown fine turno",
-        "Comunicazioni con medico e coordinatore",
-      ],["Infermiere","OSS","Fisioterapista","Nutrizionista","Logopedista","Terapista occupazionale","Psicologo","Assistente sociale","Educatrice","Altro"])}
-
-      {role_card("superadmin_staff_crea","settings","Super Amministratore","Creazione e configurazione utenti",[
-        "Creazione nuovi utenti e assegnazione del profilo",
-        "Configurazione permessi granulari per struttura e reparto",
-        "Ogni utente vede solo le funzioni e i reparti di sua competenza",
-        "Gestione multi-struttura centralizzata",
-        "Monitoraggio alert di sistema e log operativi",
-      ])}
-
-      {role_card("role_admin_crea_paziente","folder-user","Amministrazione","Registrazione nuovo paziente",[
-        "Registrazione nuovi pazienti e gestione anagrafica",
-        "Visualizzazione reparto e stato di ricovero",
-        "Accesso alle informazioni amministrative della cartella",
-        "Coordinamento con il personale sanitario per l'accoglienza",
-        "Gestione documenti, consensi e privacy GDPR",
-      ])}
-
-      {role_card("role_mdb_cartella","user-laptop","Medico di base","Cartella clinica del proprio paziente",[
-        "Visibilità sulle cartelle dei propri assistiti ricoverati",
-        "Possibilità di aggiungere note e aggiornamenti clinici",
-        "Comunicazione diretta con il team medico e infermieristico",
-        "Ricezione di alert su variazioni cliniche rilevanti",
-        "Accesso limitato ai soli pazienti di pertinenza",
-      ])}
-      {role_card("paziente_dashboard","heart","Paziente","Portale personale del paziente",[
-        "Visualizzazione della propria cartella clinica e dei dati sanitari",
-        "Prenotazione di visite e appuntamenti direttamente dal portale",
-        "Ricezione di comunicazioni dalla struttura e dal team curante",
-        "Calendario personale con storico e prossime visite programmate",
-        "Gestione del profilo personale e dei recapiti di contatto",
-      ])}
-
     </div>
   </div>
 </section>
