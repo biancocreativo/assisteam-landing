@@ -225,7 +225,7 @@ module.exports = async function handler(req, res) {
       }),
       transporter.sendMail({
         from: '"AssisTeam24" <noreply@assisteam24.it>',
-        to: 'info@assisteam24.it',
+        to: 'alessio.tedesco@gmail.com',
         replyTo: email,
         subject: `Nuova richiesta demo — ${nome} ${cognome} (${struttura})`,
         html: internalEmail(nome, cognome, struttura, tipo, ruolo, email, telefono, messaggio, now),
